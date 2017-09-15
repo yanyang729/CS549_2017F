@@ -248,6 +248,30 @@ public class Client {
 			}
 		}
 
+		private static class PutThread implements Runnable {
+			private ServerSocket dataChan = null;
+			private FileInputStream file = null;
+
+			public PutThread(ServerSocket s, FileInputStream f) {
+				dataChan = s;
+				file = f;
+			}
+
+
+			public void run() {
+				try {
+					Socket xfer = dataChan.accept(); // listen
+					OutputStream out = xfer.getOutputStream();
+					IOUtils.copyStream(file, out);
+
+				} catch (IOException e) {
+					msg("Exception: " + e);
+					e.printStackTrace();
+				}
+			}
+		}
+
+
 		public void get(String[] inputs) {
 			if (inputs.length == 2) {
 				try {
@@ -282,7 +306,17 @@ public class Client {
 					/*
 					 * TODO: Finish put (both ACTIVE and PASSIVE mode supported).
 					 */
-
+					if( mode == Mode.PASSIVE) {
+						svr.put(inputs[1]);
+						FileInputStream f = new FileInputStream(inputs[1]);
+						Socket xfer = new Socket(serverAddress, serverSocket.getPort());
+						OutputStream out = xfer.getOutputStream();
+						IOUtils.copyStream(f, out);
+					} else if (mode == Mode.ACTIVE){
+						FileInputStream f = new FileInputStream(inputs[1]);
+						new Thread(new PutThread(dataChan, f)).start();
+						svr.put(inputs[1]);
+					}
 
 				} catch (Exception e) {
 					err(e);

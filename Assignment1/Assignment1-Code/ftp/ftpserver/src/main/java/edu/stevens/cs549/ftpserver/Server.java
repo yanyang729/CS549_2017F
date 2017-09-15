@@ -137,6 +137,24 @@ public class Server extends UnicastRemoteObject
         }
 
     }
+
+    private static class  PutThread implements Runnable{
+        private ServerSocket dataChan = null;
+        private FileOutputStream file = null;
+        public PutThread (ServerSocket s, FileOutputStream f) { dataChan = s; file = f;}
+
+        public void run () {
+            try {
+                Socket xfer = dataChan.accept();
+                InputStream in = xfer.getInputStream();
+                IOUtils.copyStream(in, file);
+            } catch (IOException e) {
+                msg("Exception: " + e);
+                e.printStackTrace();
+            }
+        }
+
+    }
     
     public void get (String file) throws IOException, FileNotFoundException, RemoteException {
         if (!valid(file)) {
@@ -152,7 +170,7 @@ public class Server extends UnicastRemoteObject
 
 
         } else if (mode == Mode.PASSIVE) {
-            FileInputStream f = new FileInputStream(path()+file);
+            FileInputStream f = new FileInputStream(path() + file);
             new Thread (new GetThread(dataChan, f)).start(); // get file
         }
     }
@@ -161,8 +179,17 @@ public class Server extends UnicastRemoteObject
     	/*
     	 * TODO: Finish put (both ACTIVE and PASSIVE).
     	 */
-
-
+        if (!valid(file)) {
+            throw new IOException("Bad file name: " + file);
+        } else if ( mode == Mode.ACTIVE){
+            Socket xfer = new Socket(clientSocket.getAddress(), clientSocket.getPort());
+            FileOutputStream f = new FileOutputStream(path() + file);
+            InputStream in = xfer.getInputStream();
+            IOUtils.copyStream(in, f);
+        } else if( mode == Mode.PASSIVE){
+            FileOutputStream f = new FileOutputStream(path() + file);
+            new Thread(new PutThread(dataChan, f)).start();
+        }
     }
     
     public String[] dir () throws RemoteException {
