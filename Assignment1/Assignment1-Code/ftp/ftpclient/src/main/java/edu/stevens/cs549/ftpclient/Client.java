@@ -152,6 +152,7 @@ public class Client {
 		
 		private InetAddress serverAddress;
 
+
 		Dispatch(IServer s, InetAddress sa) {
 			svr = s;
 			serverAddress = sa;
@@ -193,7 +194,7 @@ public class Client {
 		private ServerSocket dataChan = null;
 
 		private InetSocketAddress makeActive() throws IOException {
-			dataChan = new ServerSocket(0);
+			dataChan = new ServerSocket(0,5,InetAddress.getByName("172.31.44.198"));
 			mode = Mode.ACTIVE;
 			/*
 			 * Note: this only works (for the server) if the client is not behind a NAT.
