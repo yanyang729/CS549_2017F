@@ -1,6 +1,6 @@
 #!/bin/bash
-export JARFILE=${client.testdir}/${client.name}.jar
-export POLICY=${client.testdir}/client.policy
+export JARFILE=${server.testdir}/${client.name}.jar
+export POLICY=${server.testdir}/client.policy
 
 if [ ! -e $JARFILE ] ; then
 	echo "Missing jar file: $JARFILE"
@@ -9,7 +9,7 @@ if [ ! -e $JARFILE ] ; then
 fi
 
 if [ ! -e $POLICY ] ; then
-	pushd ${client.testdir}
+	pushd ${server.testdir}
 	jar xf "$JARFILE" client.policy
 	popd
 fi

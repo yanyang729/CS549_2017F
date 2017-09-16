@@ -1,4 +1,4 @@
-grant codeBase "file:${client.home}/-" {
+grant codeBase "file:${server.home}/-" {
     permission java.security.AllPermission;
 };
 

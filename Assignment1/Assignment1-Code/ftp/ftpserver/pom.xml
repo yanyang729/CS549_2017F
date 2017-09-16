@@ -90,7 +90,7 @@
 		<profile>
 			<id>local</id>
 			<activation>
-				<activeByDefault>true</activeByDefault>
+				<!--<activeByDefault>true</activeByDefault>-->
 				<property>
 					<name>local</name>
 				</property>

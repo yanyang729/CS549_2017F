@@ -30,8 +30,8 @@
 
 		<!-- Lookup the server factory at the rmi registry at this port under this 
 			dns name. -->
-		<server.internal-ip>10.50.198.208</server.internal-ip>
-		<server.external-dns>ec2-23-20-36-165.compute-1.amazonaws.com</server.external-dns>
+		<server.internal-ip>172.31.47.129</server.internal-ip>
+		<server.external-dns>ec2-34-214-166-188.us-west-2.compute.amazonaws.com</server.external-dns>
 		<server.userid>ec2-user</server.userid>
 		<server.port>5050</server.port>
 		<server.name>ftpd</server.name>
@@ -82,6 +82,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
 	<modules>
 		<module>ftpinterface</module>
 		<module>ftpserver</module>
