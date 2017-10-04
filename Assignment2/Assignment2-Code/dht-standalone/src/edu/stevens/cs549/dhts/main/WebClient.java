@@ -1,7 +1,8 @@
 package edu.stevens.cs549.dhts.main;
 
-import java.net.URI;
-import java.util.logging.Logger;
+import edu.stevens.cs549.dhts.activity.DHTBase;
+import edu.stevens.cs549.dhts.activity.NodeInfo;
+import edu.stevens.cs549.dhts.resource.TableRep;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -11,11 +12,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.xml.bind.JAXBElement;
-
-import edu.stevens.cs549.dhts.activity.DHTBase;
-import edu.stevens.cs549.dhts.activity.NodeInfo;
-import edu.stevens.cs549.dhts.resource.TableRep;
-import edu.stevens.cs549.dhts.resource.TableRow;
+import java.net.URI;
+import java.util.logging.Logger;
 
 public class WebClient {
 
@@ -30,6 +28,7 @@ public class WebClient {
 	 * 
 	 * TODO: Fill in missing operations.
 	 */
+
 
 	/*
 	 * Creation of client instances is expensive, so just create one.
@@ -60,12 +59,55 @@ public class WebClient {
 
 	private Response putRequest(URI uri, Entity<?> entity) {
 		// TODO
-		
+		try {
+			Response cr = client.target(uri)
+					.request(MediaType.APPLICATION_ATOM_XML_TYPE)
+					.header(Time.TIME_STAMP, Time.advanceTime())
+					.put(entity);
+			processResponseTimestamp(cr);
+			return cr;
+		} catch (Exception e) {
+			error("Exception during PUT request: " + e);
+			return null;
+		}
 	}
 	
 	private Response putRequest(URI uri) {
 		return putRequest(uri, Entity.text(""));
 	}
+
+	private Response postRequest(URI uri, Entity<?> entity){
+		try {
+			Response cr = client.target(uri)
+					.request(MediaType.APPLICATION_ATOM_XML_TYPE)
+					.header(Time.TIME_STAMP, Time.advanceTime())
+					.post(entity);
+			processResponseTimestamp(cr);
+			return cr;
+		} catch (Exception e) {
+			error("Exception during PUT request: " + e);
+			return null;
+		}
+	}
+
+	private Response postRequest(URI uri) {
+		return postRequest(uri, Entity.text(""));
+	}
+
+	private Response deleteRequest(URI uri) {
+		try {
+			Response cr = client.target(uri)
+					.request(MediaType.APPLICATION_XML_TYPE)
+					.header(Time.TIME_STAMP, Time.advanceTime())
+					.delete();
+			processResponseTimestamp(cr);
+			return cr;
+		} catch (Exception e) {
+			error("Exception during DELETE request: " + e);
+			return null;
+		}
+	}
+
 
 	private void processResponseTimestamp(Response cr) {
 		Time.advanceTime(Long.parseLong(cr.getHeaders().getFirst(Time.TIME_STAMP).toString()));
