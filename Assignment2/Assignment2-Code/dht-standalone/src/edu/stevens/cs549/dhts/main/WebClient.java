@@ -3,6 +3,7 @@ package edu.stevens.cs549.dhts.main;
 import edu.stevens.cs549.dhts.activity.DHTBase;
 import edu.stevens.cs549.dhts.activity.NodeInfo;
 import edu.stevens.cs549.dhts.resource.TableRep;
+import edu.stevens.cs549.dhts.resource.TableRow;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -61,7 +62,7 @@ public class WebClient {
 		// TODO
 		try {
 			Response cr = client.target(uri)
-					.request(MediaType.APPLICATION_ATOM_XML_TYPE)
+					.request(MediaType.APPLICATION_XML_TYPE)
 					.header(Time.TIME_STAMP, Time.advanceTime())
 					.put(entity);
 			processResponseTimestamp(cr);
@@ -74,24 +75,6 @@ public class WebClient {
 	
 	private Response putRequest(URI uri) {
 		return putRequest(uri, Entity.text(""));
-	}
-
-	private Response postRequest(URI uri, Entity<?> entity){
-		try {
-			Response cr = client.target(uri)
-					.request(MediaType.APPLICATION_ATOM_XML_TYPE)
-					.header(Time.TIME_STAMP, Time.advanceTime())
-					.post(entity);
-			processResponseTimestamp(cr);
-			return cr;
-		} catch (Exception e) {
-			error("Exception during PUT request: " + e);
-			return null;
-		}
-	}
-
-	private Response postRequest(URI uri) {
-		return postRequest(uri, Entity.text(""));
 	}
 
 	private Response deleteRequest(URI uri) {
@@ -120,6 +103,9 @@ public class WebClient {
 	private GenericType<JAXBElement<NodeInfo>> nodeInfoType = new GenericType<JAXBElement<NodeInfo>>() {
 	};
 
+	private GenericType<JAXBElement<TableRow>> tableRowType = new GenericType<JAXBElement<TableRow>>() {
+	};
+
 	/*
 	 * Ping a remote site to see if it is still available.
 	 */
@@ -127,6 +113,57 @@ public class WebClient {
 		URI uri = UriBuilder.fromUri(base).path("info").build();
 		Response c = getRequest(uri);
 		return c.getStatus() >= 300;
+	}
+
+	public NodeInfo findSuccessor(URI addr, int id) throws DHTBase.Failed {
+		URI findPath = UriBuilder.fromUri(addr).path("find").queryParam("id", id).build();
+		info("client findSuccessor(" + findPath + ")");
+		Response response = getRequest(findPath);
+		if (response == null || response.getStatus() >= 300) {
+			throw new DHTBase.Failed("GET /find");
+		} else {
+			return response.readEntity(nodeInfoType).getValue();
+		}
+	}
+
+	public NodeInfo getSucc(NodeInfo info) throws DHTBase.Failed {
+		URI succPath = UriBuilder.fromUri(info.addr).path("succ").build();
+		info("client getSucc(" + succPath + ")");
+		Response response = getRequest(succPath);
+		if (response == null || response.getStatus() >= 300) {
+			throw new DHTBase.Failed("GET /succ");
+		} else {
+			return response.readEntity(nodeInfoType).getValue();
+		}
+	}
+
+	public String[] get(URI addr, String k) throws DHTBase.Failed {
+		URI getPath = UriBuilder.fromUri(addr).path(k).build();
+		info("client add(" + getPath + ")");
+		Response response = getRequest(getPath);
+		if (response == null || response.getStatus() >= 300) {
+			throw new DHTBase.Failed(String.format("GET /%s", k));
+		} else {
+			return response.readEntity(tableRowType).getValue().vals;
+		}
+	}
+
+	public void add(URI addr, String k, String v) throws DHTBase.Failed{
+		URI addPath = UriBuilder.fromUri(addr).path(k).path(v).build();
+		info("client add(" + addPath + ")");
+		Response response = putRequest(addPath);
+		if (response == null || response.getStatus() >= 300) {
+			throw new DHTBase.Failed(String.format("POST /%s/%s", k, v));
+		}
+	}
+
+	public void delete(URI addr, String k, String v) throws DHTBase.Failed {
+		URI delPath = UriBuilder.fromUri(addr).path(k).path(v).build();
+		info("client delete(" + delPath + ")");
+		Response response = deleteRequest(delPath);
+		if (response == null || response.getStatus() >= 300) {
+			throw new DHTBase.Failed(String.format("DELETE /%s/%s", k, v));
+		}
 	}
 
 	/*
@@ -172,6 +209,18 @@ public class WebClient {
 		} else {
 			TableRep bindings = response.readEntity(TableRep.class);
 			return bindings;
+		}
+	}
+
+	public NodeInfo closestPrecedingFinger(NodeInfo node, int id) throws DHTBase.Failed {
+		URI getPath = UriBuilder.fromUri(node.addr).path("finger").queryParam("id",id).build();
+		info("client findColsestfinger(" + getPath + ")");
+		Response response = getRequest(getPath);
+		if (response == null || response.getStatus() >= 300) {
+			throw new DHTBase.Failed("GET /finger");
+		} else {
+			NodeInfo finger = response.readEntity(nodeInfoType).getValue();
+			return finger;
 		}
 	}
 

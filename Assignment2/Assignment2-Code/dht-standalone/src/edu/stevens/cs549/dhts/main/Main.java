@@ -1,26 +1,19 @@
 package edu.stevens.cs549.dhts.main;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.rmi.registry.Registry;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Properties;
-import java.util.Random;
-import java.util.logging.Logger;
-
-import javax.ws.rs.core.UriBuilder;
-
-import org.glassfish.grizzly.http.server.HttpServer;
-import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
-
 import edu.stevens.cs549.dhts.activity.Background;
 import edu.stevens.cs549.dhts.activity.NodeInfo;
 import edu.stevens.cs549.dhts.state.IRouting;
 import edu.stevens.cs549.dhts.state.State;
+import org.glassfish.grizzly.http.server.HttpServer;
+import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
+
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.rmi.registry.Registry;
+import java.util.*;
+import java.util.logging.Logger;
 //import com.sun.jersey.api.container.grizzly2.GrizzlyServerFactory;
 //import com.sun.jersey.api.core.PackagesResourceConfig;
 //import com.sun.jersey.api.core.ResourceConfig;
@@ -70,7 +63,7 @@ public class Main {
 
 	public void bgWarning(String s) {
 		if (!background)
-			info(s);
+			warning(s);
 	}
 
 	public void bgInfo(String s) {
@@ -114,7 +107,7 @@ public class Main {
 
 	protected static URI BASE_URI;
 
-	protected static NodeInfo INFO;
+	protected static NodeInfo INFO; // NodeInfo: id & URI
 
 	protected State stub;
 
@@ -203,6 +196,7 @@ public class Main {
 
 	protected HttpServer startHttpServer() throws IOException {
 		info("Starting HTTP server.");
+		// get resources
 		return GrizzlyHttpServerFactory.createHttpServer(BASE_URI, new Application());
 	}
 
@@ -231,6 +225,7 @@ public class Main {
 		HttpServer httpServer = main.startHttpServer();
 		Thread t = new Thread(new Background(5000, 8, main, client.getDHT()));
 		t.start();
+
 		/*
 		 * Start the command-line loop.
 		 */

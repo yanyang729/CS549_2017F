@@ -1,14 +1,5 @@
 package edu.stevens.cs549.dhts.resource;
 
-import java.util.List;
-
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
-import javax.xml.bind.JAXBElement;
-import javax.xml.namespace.QName;
-
 import edu.stevens.cs549.dhts.activity.DHT;
 import edu.stevens.cs549.dhts.activity.DHTBase.Failed;
 import edu.stevens.cs549.dhts.activity.DHTBase.Invalid;
@@ -16,6 +7,14 @@ import edu.stevens.cs549.dhts.activity.IDHTResource;
 import edu.stevens.cs549.dhts.activity.NodeInfo;
 import edu.stevens.cs549.dhts.main.Log;
 import edu.stevens.cs549.dhts.main.Time;
+
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+import javax.xml.bind.JAXBElement;
+import javax.xml.namespace.QName;
+import java.util.List;
 
 /*
  * Additional resource logic.  The Web resource operations call
@@ -84,10 +83,18 @@ public class NodeService {
 		return Response.ok().header(Time.TIME_STAMP, Time.advanceTime()).build();
 	}
 
+	// Retrieve the key and URI for the node
 	public Response getNodeInfo() {
 		advanceTime();
 		info("getNodeInfo()");
 		return response(dht.getNodeInfo());
+	}
+
+
+	public Response getSucc() {
+		advanceTime();
+		info("getSucc()");
+		return response(dht.getSucc());
 	}
 
 	public Response getPred() {
@@ -96,6 +103,44 @@ public class NodeService {
 		return response(dht.getPred());
 	}
 
+	public Response get(String key) {
+		try {
+			advanceTime();
+			info("get()");
+			return response(new TableRow(key, dht.get(key)));
+		} catch (Invalid invalid) {
+		}
+		return response();
+	}
+
+	public Response add(String id, String value) {
+		try {
+			advanceTime();
+			info("add()");
+			dht.add(id, value);
+		} catch (Invalid e) {
+		}
+		return response();
+	}
+
+	public Response delete(String id, String value) {
+		try {
+			advanceTime();
+			info("delete()");
+			dht.delete(id, value);
+		} catch (Invalid e) {
+		}
+		return response();
+	}
+
+
+	/*
+	Notify the node of a new predecessor node, specified in
+	the input element (representation). If the node accepts
+	the new predecessor, it returns a representation of its
+	bindings, some of which are taken over by the
+	predecessor.
+	 */
 	public Response notify(TableRep predDb) {
 		advanceTime();
 		info("notify()");
@@ -121,6 +166,12 @@ public class NodeService {
 		} catch (Failed e) {
 			throw new WebApplicationException(Response.Status.SERVICE_UNAVAILABLE);
 		}
+	}
+
+	public Response findClosestPrecedingFinger(int i) {
+		advanceTime();
+		info("findClosestPrecedingFinger()");
+		return  response(dht.closestPrecedingFinger(i));
 	}
 	
 }

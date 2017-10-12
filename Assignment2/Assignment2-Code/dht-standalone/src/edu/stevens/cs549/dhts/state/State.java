@@ -1,5 +1,9 @@
 package edu.stevens.cs549.dhts.state;
 
+import edu.stevens.cs549.dhts.activity.DHT;
+import edu.stevens.cs549.dhts.activity.NodeInfo;
+import edu.stevens.cs549.dhts.resource.TableRep;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -8,10 +12,6 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Logger;
-
-import edu.stevens.cs549.dhts.activity.DHTBase;
-import edu.stevens.cs549.dhts.activity.NodeInfo;
-import edu.stevens.cs549.dhts.resource.TableRep;
 
 /**
  * 
@@ -35,7 +35,6 @@ public class State implements IState, IRouting {
 		for (int i = 0; i < NKEYS; i++) {
 			finger[i] = info;
 		}
-
 	}
 
 	/*
@@ -171,6 +170,7 @@ public class State implements IState, IRouting {
 		/*
 		 * TODO: Set the ith finger.
 		 */
+		finger[i] = info;
 		
 	}
 
@@ -178,7 +178,7 @@ public class State implements IState, IRouting {
 		/*
 		 * TODO: Get the ith finger.
 		 */
-		
+		return finger[i];
 	}
 
 	public synchronized NodeInfo closestPrecedingFinger(int id) {
@@ -186,6 +186,15 @@ public class State implements IState, IRouting {
 		 * TODO: Get closest preceding finger for id, to continue search at that
 		 * node. Hint: See DHTBase.inInterval()
 		 */
+		NodeInfo prev = info, curr;
+		for (int i = 0; i < IRouting.NFINGERS; i++) {
+			curr = finger[i];
+			if (DHT.inInterval(id, prev.id, curr.id)) {
+				return prev;
+			}
+			prev = curr;
+		}
+		return finger[IRouting.NFINGERS - 1];
 
 	}
 

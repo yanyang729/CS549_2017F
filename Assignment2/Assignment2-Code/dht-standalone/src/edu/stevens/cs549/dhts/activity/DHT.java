@@ -1,16 +1,15 @@
 package edu.stevens.cs549.dhts.activity;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.logging.Logger;
-
-import javax.ws.rs.core.UriInfo;
-
 import edu.stevens.cs549.dhts.main.Main;
 import edu.stevens.cs549.dhts.main.WebClient;
 import edu.stevens.cs549.dhts.resource.TableRep;
 import edu.stevens.cs549.dhts.state.IRouting;
 import edu.stevens.cs549.dhts.state.IState;
+
+import javax.ws.rs.core.UriInfo;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Logger;
 
 public class DHT extends DHTBase implements IDHTResource, IDHTNode, IDHTBackground {
 
@@ -114,7 +113,7 @@ public class DHT extends DHTBase implements IDHTResource, IDHTNode, IDHTBackgrou
 			return getSucc();
 		} else {
 			// TODO: Do the Web service call
-
+			return getClient().getSucc(info);
 		}
 	}
 
@@ -149,7 +148,7 @@ public class DHT extends DHTBase implements IDHTResource, IDHTNode, IDHTBackgrou
 			/*
 			 * TODO: Do the Web service call
 			 */
-			
+			return client.getPred(info);
 		}
 	}
 
@@ -182,7 +181,7 @@ public class DHT extends DHTBase implements IDHTResource, IDHTNode, IDHTBackgrou
 				/*
 				 * TODO: Do the Web service call to the remote node.
 				 */
-				
+				return client.closestPrecedingFinger(info,id);
 			} else {
 				/*
 				 * Without finger tables, just use the successor pointer.
@@ -469,7 +468,8 @@ public class DHT extends DHTBase implements IDHTResource, IDHTNode, IDHTBackgrou
 			 * 
 			 * TODO: Do the Web service call.
 			 */
-			
+			return getClient().get(n.addr, k);
+
 		}
 	}
 
@@ -496,7 +496,7 @@ public class DHT extends DHTBase implements IDHTResource, IDHTNode, IDHTBackgrou
 			/*
 			 * TODO: Do the Web service call.
 			 */
-			
+			getClient().add(n.addr, k, v);
 		}
 	}
 
@@ -549,7 +549,7 @@ public class DHT extends DHTBase implements IDHTResource, IDHTNode, IDHTBackgrou
 			/*
 			 * TODO: Do the Web service call.
 			 */
-			
+			client.delete(n.addr, k, v);
 		}
 	}
 
@@ -634,7 +634,14 @@ public class DHT extends DHTBase implements IDHTResource, IDHTNode, IDHTBackgrou
 		 * that it keeps its own bindings, to which it adds those it transfers
 		 * from us.
 		 */
-
+		try {
+			succ = client.findSuccessor(new URI(uri), (info.id + 1) % IRouting.NKEYS);
+			setSucc(succ);
+			state.clear();
+			stabilize();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
 	
 	}
 
