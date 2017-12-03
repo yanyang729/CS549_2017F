@@ -39,3 +39,10 @@ rm -r data/test3-output && hdfs dfs -get /user/data/finalout ./data
 
 hadoop jar target/PageRank-1.0.0.jar edu/stevens/cs549/hadoop/pagerank/PageRankDriver composite /user/data/test-input2 /user/data/finalout /user/data/inter1 /user/data/inter2 diffout 5
 rm -r data/finalout && hdfs dfs -get /user/data/null ./data
+
+
+---------------------------EMR
+
+hdfs dfs -ls /user/hadoop
+hadoop jar PageRank-1.0.0.jar edu/stevens/cs549/hadoop/pagerank/PageRankDriver composite /user/hadoop/links-simple-sorted /user/hadoop/finalout /user/hadoop/inter1 /user/hadoop/inter2 /user/hadoop/page-names/ 5
+

@@ -24,15 +24,25 @@
           <file leaf-file-name="PageRankDriver.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/PageRankDriver.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1257">
-                  <caret line="344" column="24" lean-forward="true" selection-start-line="344" selection-start-column="24" selection-end-line="344" selection-end-column="24" />
+                <state relative-caret-position="-2505">
+                  <caret line="196" column="71" lean-forward="true" selection-start-line="196" selection-start-column="71" selection-end-line="196" selection-end-column="71" />
                   <folding>
                     <element signature="e#1058#1099#0" expanded="false" />
                     <element signature="e#2286#2326#0" expanded="false" />
-                    <element signature="e#13830#13864#0" expanded="false" />
+                    <element signature="e#13832#13866#0" expanded="false" />
                     <element signature="method#readDiffResult#0;class#PageRankDriver#0" expanded="false" />
                     <element signature="method#deleteDirectory#0;class#PageRankDriver#0" expanded="false" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/pom.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="171">
+                  <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -60,8 +70,8 @@
           <file leaf-file-name="README" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/README">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="494">
-                  <caret line="26" column="18" lean-forward="false" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+                <state relative-caret-position="551">
+                  <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
@@ -81,7 +91,7 @@
             <entry file="file://$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/FinMapper.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="342">
-                  <caret line="23" column="64" lean-forward="true" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
+                  <caret line="23" column="64" lean-forward="false" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
                   <folding />
                 </state>
               </provider>
@@ -112,16 +122,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="133">
                   <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="IterReducer.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/IterReducer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="494">
-                  <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -177,10 +177,10 @@
         <option value="$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/DiffMap1.java" />
         <option value="$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/InitReducer.java" />
         <option value="$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/IterMapper.java" />
-        <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/data/test-input/test" />
         <option value="$PROJECT_DIR$/data/test-input/test.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/PageRankDriver.java" />
       </list>
     </option>
@@ -264,6 +264,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="PageRank.toDist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PageRank" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PageRank.toDist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -765,12 +779,12 @@
       <option name="presentableId" value="Default" />
       <updated>1511660288313</updated>
       <workItem from="1511660291364" duration="13268000" />
-      <workItem from="1512103705311" duration="39355000" />
+      <workItem from="1512103705311" duration="40874000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52623000" />
+    <option name="totallyTimeSpent" value="54142000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -841,7 +855,7 @@
           <folding>
             <element signature="e#1058#1099#0" expanded="false" />
             <element signature="e#2286#2326#0" expanded="false" />
-            <element signature="e#13830#13864#0" expanded="false" />
+            <element signature="e#13832#13866#0" expanded="false" />
             <element signature="method#readDiffResult#0;class#PageRankDriver#0" expanded="false" />
             <element signature="method#deleteDirectory#0;class#PageRankDriver#0" expanded="false" />
           </folding>
@@ -939,14 +953,6 @@
           <folding>
             <element signature="e#0#13283#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1125,14 +1131,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="18" lean-forward="false" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -1160,19 +1158,35 @@
     <entry file="file://$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/FinMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="23" column="64" lean-forward="true" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
+          <caret line="23" column="64" lean-forward="false" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/PageRankDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1257">
-          <caret line="344" column="24" lean-forward="true" selection-start-line="344" selection-start-column="24" selection-end-line="344" selection-end-column="24" />
+        <state relative-caret-position="-2505">
+          <caret line="196" column="71" lean-forward="true" selection-start-line="196" selection-start-column="71" selection-end-line="196" selection-end-column="71" />
           <folding>
             <element signature="e#1058#1099#0" expanded="false" />
             <element signature="e#2286#2326#0" expanded="false" />
-            <element signature="e#13830#13864#0" expanded="false" />
+            <element signature="e#13832#13866#0" expanded="false" />
             <element signature="method#readDiffResult#0;class#PageRankDriver#0" expanded="false" />
             <element signature="method#deleteDirectory#0;class#PageRankDriver#0" expanded="false" />
           </folding>

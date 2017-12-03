@@ -197,7 +197,7 @@ public class PageRankDriver {
         job.setNumReduceTasks(reducers); // Sets the number of reducers
 
         FileInputFormat.addInputPath(job, new Path(input)); // Adds input and output paths
-        FileInputFormat.addInputPath(job, new Path(name)); // Adds input and output paths
+//        FileInputFormat.addInputPath(job, new Path(name)); // Adds input and output paths
 
         FileOutputFormat.setOutputPath(job, new Path(output));
 
