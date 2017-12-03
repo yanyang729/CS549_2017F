@@ -39,7 +39,7 @@ public class PageRankDriver {
             } else if (job.equals("iter")) {
                 iter(args[1], args[2], Integer.parseInt(args[3]));
             } else if (job.equals("finish")) {
-                finish(args[1], args[2], Integer.parseInt(args[3]));
+                finish(args[1], args[2], args[3], Integer.parseInt(args[3]));
             } else // In case the function name doesn't match up
             {
                 System.err
@@ -197,6 +197,8 @@ public class PageRankDriver {
         job.setNumReduceTasks(reducers); // Sets the number of reducers
 
         FileInputFormat.addInputPath(job, new Path(input)); // Adds input and output paths
+        FileInputFormat.addInputPath(job, new Path(name)); // Adds input and output paths
+
         FileOutputFormat.setOutputPath(job, new Path(output));
 
         job.setMapperClass(FinMapper.class); // Sets Mapper and Reducer Classes
@@ -267,7 +269,7 @@ public class PageRankDriver {
         {
             deleteDirectory(interim1); // deletes other directory
             counter++;
-            finish(interim2, output, reducers);
+            finish(interim2, output, name, reducers);
             summarizeResult(output);
         } else // for even i, interim1 is the input directory
         {

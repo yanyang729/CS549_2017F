@@ -24,16 +24,35 @@
           <file leaf-file-name="PageRankDriver.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/PageRankDriver.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="57">
-                  <caret line="148" column="41" lean-forward="true" selection-start-line="148" selection-start-column="41" selection-end-line="148" selection-end-column="41" />
+                <state relative-caret-position="1257">
+                  <caret line="344" column="24" lean-forward="true" selection-start-line="344" selection-start-column="24" selection-end-line="344" selection-end-column="24" />
                   <folding>
                     <element signature="e#1058#1099#0" expanded="false" />
-                    <element signature="e#2277#2317#0" expanded="false" />
-                    <element signature="method#summarizeResult#0;class#PageRankDriver#0" expanded="false" />
-                    <element signature="e#13705#13739#0" expanded="false" />
+                    <element signature="e#2286#2326#0" expanded="false" />
+                    <element signature="e#13830#13864#0" expanded="false" />
                     <element signature="method#readDiffResult#0;class#PageRankDriver#0" expanded="false" />
                     <element signature="method#deleteDirectory#0;class#PageRankDriver#0" expanded="false" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="test" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/data/test-input/test">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="19">
+                  <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -42,7 +61,7 @@
             <entry file="file://$PROJECT_DIR$/README">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="494">
-                  <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+                  <caret line="26" column="18" lean-forward="false" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
                   <folding />
                 </state>
               </provider>
@@ -53,6 +72,26 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="152">
                   <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FinMapper.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/FinMapper.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="342">
+                  <caret line="23" column="64" lean-forward="true" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FinReducer.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/FinReducer.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="304">
+                  <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -138,10 +177,11 @@
         <option value="$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/DiffMap1.java" />
         <option value="$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/InitReducer.java" />
         <option value="$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/IterMapper.java" />
-        <option value="$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/PageRankDriver.java" />
         <option value="$PROJECT_DIR$/README" />
         <option value="$PROJECT_DIR$/data/test-input/test" />
         <option value="$PROJECT_DIR$/data/test-input/test.txt" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/PageRankDriver.java" />
       </list>
     </option>
   </component>
@@ -242,24 +282,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pagerank" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PageRank" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PageRank.toDist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test-input2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -743,12 +765,12 @@
       <option name="presentableId" value="Default" />
       <updated>1511660288313</updated>
       <workItem from="1511660291364" duration="13268000" />
-      <workItem from="1512103705311" duration="37967000" />
+      <workItem from="1512103705311" duration="39355000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51235000" />
+    <option name="totallyTimeSpent" value="52623000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -764,7 +786,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0015936255" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0015936255" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -775,7 +797,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23027888" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19176424" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -818,9 +840,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#1058#1099#0" expanded="false" />
-            <element signature="e#2277#2317#0" expanded="false" />
-            <element signature="method#summarizeResult#0;class#PageRankDriver#0" expanded="false" />
-            <element signature="e#13705#13739#0" expanded="false" />
+            <element signature="e#2286#2326#0" expanded="false" />
+            <element signature="e#13830#13864#0" expanded="false" />
             <element signature="method#readDiffResult#0;class#PageRankDriver#0" expanded="false" />
             <element signature="method#deleteDirectory#0;class#PageRankDriver#0" expanded="false" />
           </folding>
@@ -911,13 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/target/classes/edu/stevens/cs549/hadoop/pagerank/PageRankDriver.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -980,22 +994,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/FinReducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/FinMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1119,14 +1117,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/test-input/test">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/test-input/test.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -1138,20 +1128,51 @@
     <entry file="file://$PROJECT_DIR$/README">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
-          <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+          <caret line="26" column="18" lean-forward="false" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/FinReducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/test-input/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/FinMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="23" column="64" lean-forward="true" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/stevens/cs549/hadoop/pagerank/PageRankDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="148" column="41" lean-forward="true" selection-start-line="148" selection-start-column="41" selection-end-line="148" selection-end-column="41" />
+        <state relative-caret-position="1257">
+          <caret line="344" column="24" lean-forward="true" selection-start-line="344" selection-start-column="24" selection-end-line="344" selection-end-column="24" />
           <folding>
             <element signature="e#1058#1099#0" expanded="false" />
-            <element signature="e#2277#2317#0" expanded="false" />
-            <element signature="method#summarizeResult#0;class#PageRankDriver#0" expanded="false" />
-            <element signature="e#13705#13739#0" expanded="false" />
+            <element signature="e#2286#2326#0" expanded="false" />
+            <element signature="e#13830#13864#0" expanded="false" />
             <element signature="method#readDiffResult#0;class#PageRankDriver#0" expanded="false" />
             <element signature="method#deleteDirectory#0;class#PageRankDriver#0" expanded="false" />
           </folding>
