@@ -1,0 +1,41 @@
+mvn package
+
+
+hadoop jar target/PageRank-1.0.0.jar edu/stevens/cs549/hadoop/pagerank/PageRankDriver init /user/data/test-input /user/data/test-output 1
+rm -r data/test-output && hdfs dfs -get /user/data/test-output ./data
+
+cat data/test-output/*
+
+
+
+-----------------------------iter1
+hadoop jar target/PageRank-1.0.0.jar edu/stevens/cs549/hadoop/pagerank/PageRankDriver iter /user/data/test-output /user/data/test2-output 1
+rm -r data/test2-output && hdfs dfs -get /user/data/test2-output ./data
+cat data/test2-output/*
+
+-----------------------------iter2
+hadoop jar target/PageRank-1.0.0.jar edu/stevens/cs549/hadoop/pagerank/PageRankDriver iter /user/data/test2-output /user/data/test3-output 2
+rm -r data/test3-output && hdfs dfs -get /user/data/test3-output ./data
+
+cat data/test3-output/*
+
+
+---------------------------diff
+
+hadoop jar target/PageRank-1.0.0.jar edu/stevens/cs549/hadoop/pagerank/PageRankDriver diff /user/data/test2-output /user/data/test3-output /user/data/diffout 2
+hdfs dfs -get /user/data/diffout ./data
+cat data/diffout/*
+
+
+-------------------------finish
+
+
+hadoop jar target/PageRank-1.0.0.jar edu/stevens/cs549/hadoop/pagerank/PageRankDriver diff /user/data/test3-output /user/data/finalout 1
+rm -r data/test3-output && hdfs dfs -get /user/data/finalout ./data
+
+
+
+---------------------------composite
+
+hadoop jar target/PageRank-1.0.0.jar edu/stevens/cs549/hadoop/pagerank/PageRankDriver composite /user/data/test-input2 /user/data/finalout /user/data/inter1 /user/data/inter2 diffout 5
+rm -r data/finalout && hdfs dfs -get /user/data/null ./data
